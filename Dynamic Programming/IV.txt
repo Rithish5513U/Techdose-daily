@@ -12,7 +12,7 @@
 1) If buyable -> We buy (or) not buy
 2) If not buyable -> We sell (or) dont sell
 
-Initial -> index = 0, buy = true, cnt = 2
+Initial -> index = 0, buy = true, cnt = k
 
 Code : 
 

@@ -23,7 +23,7 @@ Code :
 
             int buy = -prices[index] + recursion(index + 1, false, remaining, prices, n);
             int notBuy = recursion(index + 1, true, remaining, prices, n);
-            profit = max(pick, notPick);
+            profit = max(buy, notBuy);
         }
 
         else{
@@ -31,6 +31,7 @@ Code :
 
             int sell = prices[index] + recursion(index + 1, true, remaining - 1, prices, n);
             int notSell = recursion(index + 1, false, remaining, prices, n);
+            profit = max(sell, notSell);
         }
 
         return profit;
@@ -49,17 +50,18 @@ Code :
     int recursion(int index, bool buyable, int remaining, vector<int>& prices, int n){
         if(index == n || remaining == 0)
             return 0;
-        int profit = 0;
 
         # If already computed return the value
         if(dp[index][buyable][remaining] != -1)
             return dp[index][buyable][remaining];
+        
+        int profit = 0;
         if(buyable){
             # Decreasing the amount as we are buying and no change when not buying
 
             int buy = -prices[index] + recursion(index + 1, false, remaining, prices, n);
             int notBuy = recursion(index + 1, true, remaining, prices, n);
-            profit = max(pick, notPick);
+            profit = max(buy, notBuy);
         }
 
         else{
@@ -67,6 +69,7 @@ Code :
 
             int sell = prices[index] + recursion(index + 1, true, remaining - 1, prices, n);
             int notSell = recursion(index + 1, false, remaining, prices, n);
+            profit = max(sell, notSell);
         }
         
         # Store the value before returning

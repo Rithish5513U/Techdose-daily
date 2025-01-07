@@ -47,7 +47,7 @@ Code :
 
 Code : 
 
-    int dp[1e5][2][3];
+    int dp[1001][2][101];
     # Initialized with -1 in the main function
 
     int recursion(int index, bool buyable, int remaining, vector<int>& prices, int n){
